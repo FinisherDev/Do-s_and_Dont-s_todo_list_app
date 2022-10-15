@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" >
+{% load static %}
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'favicons/list2.ico' %}" />
+    <link rel="stylesheet" href="{% static 'styles/App.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/Modal.css' %}">
+    <title>Do&#8217;s and Dont&rsquo;s</title>
+</head>
+<body>
+  {% if messages %}
+    {% for msg in messages %}
+      <div class="alert alert-{{msg.level_tag}}" role="alert" id="msg">
+        {{msg.message}}
+      </div>
+    {% endfor %}
+  {% endif %}
+    <div id="root" class="content">
+      <script type="text/javascript" src="{% static 'main.js' %}"></script>
+    </div>
+</body>
+</html>
