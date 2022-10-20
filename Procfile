@@ -1,1 +1,1 @@
-web: gunicorn speakup.wsgi 
+web: gunicorn Dos_and_Donts.wsgi 
