@@ -9,20 +9,34 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
-from pathlib import Path
 import os
+import socket
+from pathlib import Path
+from six.moves import configparser
 from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#ConfigParser for reading configuration files
+config = configparser.SafeConfigParser(allow_no_value = True)
+
+#Configuration starts here
+#For Production
+if socket.gethostname().startswith('evening-refuge'):
+    config.read('%s/Dos_and_Donts/configs/production.config' % (BASE_DIR))
+#For testing
+elif socket.gethostname().startswith('test'):
+    config.read('%s/Dos_and_Donts/configs/test.config' % (BASE_DIR))
+#For Development
+else:
+    config.read('%s/Dos_and_Donts/configs/dev.config' % (BASE_DIR))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%-$6=mtmdsmqr_v78^3^p824ffa)@^eq@pl+99ym-*a=v^lpz&'
+SECRET_KEY = config.get('security', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -83,16 +97,12 @@ WSGI_APPLICATION = 'Dos_and_Donts.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'postgres': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST' : 'localhost',
-        'PORT' :'5432',
-        'USER' : 'postgres',
-        'PASSWORD' : 'P3nr053',
-        'NAME': 'list_base',
+        'ENGINE': config.get('databases','ENGINE'),
+        'HOST' : config.get('databases','HOST'),
+        'PORT' :config.get('databases','PORT'),
+        'USER' : config.get('databases','USER'),
+        'PASSWORD' : config.get('databases','PASSWORD'),
+        'NAME': config.get('databases','NAME'),
     }
 }
 
@@ -131,7 +141,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/static/')

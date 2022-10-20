@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL =  "https://softwork.pythonanywhere.com/api";
+const baseURL =  "http://127.0.0.1:8000/api";
 
 const AuthService = axios.create({
     baseURL: baseURL,

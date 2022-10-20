@@ -1,0 +1,462 @@
+/* General Styles. Do NOT edit no matter circumstances!*/
+#panel-disabled{
+  display: none;
+}
+#panel-enabled{
+  display: block;
+}
+button{
+  background-color: white;
+  border-width: thin;
+  margin-right: 10px;
+  border-color: #C0C0C0;
+  border-style: solid;
+}
+.bar_1, .bar_2, .bar_3{
+  width: 25px;
+  height: 4px;
+  background-color: white;
+  margin: 6px;
+  transition: 0.4s;
+}
+.change .bar_1{
+  transform:  translate(0,9.8px) rotate(-45deg);
+}
+.change .bar_2{
+  opacity: 0;
+}
+.change .bar_3{
+  transform: translate(0,-9.8px) rotate(45deg);
+}
+.error{
+  display: block;
+  background-image: linear-gradient(180deg, #F0DDDF, #F4DFE0);
+  border-radius: 3px;
+  padding-left: 3px;
+  border-color: #E4D6D8;
+  font-size: 20px;
+  color: #93545C;
+  margin-bottom: 3px;
+  box-shadow: 1px 1px 0.3px #666;
+}
+.labels{
+  font-size: 20px;
+}
+input[name = 'password']{
+  width: 45%;
+  height: 22px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  font-size: 15px;
+  padding-left: 3px;
+  display: block;
+  margin-bottom: 20px;
+}
+input[name = 'email']{
+  width: 43%;
+  height: 22px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  font-size: 15px;
+  padding-left: 3px;
+  display: block;
+  margin-bottom: 20px;
+}
+.buttons{
+  float: right;
+  clear: left;
+}
+var{
+  font-style: normal;
+  margin-left: 9px;
+}
+/* List Item Stylings */
+.title_hd{
+  font-size: 1.4em;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 6px;
+  height: 100%;
+  background-color: #EEEEEE;
+  font-weight: 550;
+}
+.title_hd:hover{
+  cursor: default;
+  background-color: #CCCCCC;
+}
+.title_hd.done:hover{
+  background-color: #C0C0C0;
+}
+.panel{
+  font-size: 1.02em;
+  padding-left: 6px;
+  margin-top: 10px;
+  height: 20%;
+  margin-bottom: 20px;
+}
+.list{
+  margin: 10px 0px 0px 3px;
+  background-color: white;
+  border: 1px solid #EEEEEE;
+  font-family: Leelawadee, cursive;
+  width: 74.5%;
+  color: #000000;
+  padding: 0px 0px 0px 0px;
+}
+#empty{
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  padding-left: 30%;
+}
+.delete{
+  overflow: scroll;
+  width: 12px;
+  height: 12px;
+  margin-left: 4px;
+  margin-right: 6px;
+  margin-top: 3px;
+  color: #DC143C;
+}
+.delete:hover{
+  cursor: pointer;
+  color: #FFC0CB;
+}
+/* Header Styles */
+#menu{
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  top: 0;
+  left: 0;
+  background-color: #00ACE7; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s;
+}
+#menu a{
+  display: block;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 8px 8px 8px 32px;
+  color: white;
+  font-family: Leelawadee;
+}
+#menu a:hover{
+  background-color: #D8EEF6;
+}
+.page-header{
+  position: fixed;
+  display: inline-flex;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #00ACE7;
+  color: white;
+  top: 0;
+  box-sizing: border-box;
+}
+#menu_btn{
+  height: 40px;
+  border: 0px;
+  padding: 0px;
+  margin-right: 3%;
+  background-color: #00ACE7;
+}
+#menu_btn:hover{
+  background-color: #18C1E7;
+  cursor: pointer;
+}
+.title{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  flex: 1;
+  height: 40px;
+  font-size: 30px;
+  font-family: Gadugi;/* Eras Medium ITC , Gadugi, Corbel*/
+}
+#no_list{
+  font-size: 3em;
+  width: 100%;
+  text-align: center;
+}
+/* Home Page Styles */
+#add-task{
+  margin-left: 3px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  background-color: #00ACE7;
+  color: white;
+  border-style: none;
+  font-family: Corbel;
+}
+.tab_button:focus{
+  background-color: #FFFFFF;
+}
+.tab_button:hover{
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+#add-task:hover{
+  background-color: #18C1E7;
+  cursor: pointer;
+}
+#home{
+  margin-left: 30px;
+  margin-top: 3%;
+}
+.tab_button{
+  background-color: #C0C0C0;
+  color: #000000;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: 0px;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+  margin-bottom: 50px;
+  border-radius: 0;
+}
+.home_tabs{
+  border-left-style: solid;
+  border-left-width: thin;
+}
+/* List page Styles*/
+.listings{
+  margin-left: 30px;
+  margin-top: 4%;
+}
+.listings .list #completion{
+  display: none;
+}
+.listings .done{
+  background-image: linear-gradient(180deg, #D9EDF8, #D1E7EE);
+  border: 1px solid #CAECEE;
+  color: #1E5A78;
+}
+.listings .title_hd.done{
+  border-radius: 6px;
+}
+.listings .list.done{
+  border-radius: 6px;
+}
+/* Login Page Styles*/
+.login_box{
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+}
+.login{
+  margin: 5% 0;
+  width: 33.33%;
+  height: 100%;
+  padding-left: 10px;
+}
+#login-head{
+  font-size: 50px;
+  text-align: center;
+}
+input[name = 'login']{
+  width: 20%;
+  height: 25px;
+  border-radius: 3px;
+  border: none;
+  font-size: 18px;
+  padding-left: 10px;
+  display: block;
+  margin: 0px 10px 20px 100%;
+  float: right;
+  clear: left;
+  background-color: #00ACE7;
+  color: white;
+}
+input[name = 'login']:hover{
+  cursor: pointer;
+  background-color: #008FC1;
+}
+.login a{
+  text-decoration: none;
+  color: #00ACE7;
+}
+/* Signup Page Styles*/
+.signup_box{
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+}
+.signup{
+  margin: 5% 0;
+  width: 33.33%;
+  height: 100%;
+  padding-left: 10px;
+}
+#signup-head{
+  font-size: 50px;
+  text-align: center;
+}
+input[name = 'username']{
+  width: 45%;
+  height: 22px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  font-size: 15px;
+  padding-left: 3px;
+  display: block;
+  margin-bottom: 20px;
+}
+input[name = 'submit']{
+  width: 20%;
+  height: 25px;
+  border-radius: 3px;
+  border: none;
+  font-size: 18px;
+  padding-left: 10px;
+  display: block;
+  margin: 0px 10px 20px 100%;
+  float: right;
+  clear: left;
+  background-color: #00ACE7;
+  color: white;
+}
+input[name = 'submit']:hover{
+  cursor: pointer;
+  background-color: #008FC1;
+}
+.signup a{
+  text-decoration: none;
+  color: #00ACE7;
+}
+/* logout Page Styles */
+.logout{
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+}
+/* Media Queries for phone and other devices */
+
+@media only screen and (max-width: 1100px) and (min-width: 500px) {
+  /* List Item Stylings */
+  #empty{
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    padding-left: 0;
+  }
+/* Home Page Styles */
+  #add-task{
+    margin-left: 3px;
+    margin-top: 37px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    background-color: #00ACE7;
+    color: white;
+    border-style: none;
+    font-family: Corbel;
+  }
+  #no_list{
+    font-size: 1.3em;
+    width: 300px;
+  }
+  /* List page Styles*/
+  .listings{
+    margin-left: 30px;
+    margin-top: 45px;
+  }
+  /* Login Page Styles*/
+  .login{
+    margin: 5% 0;
+    width: 400px;
+    height: 100%;
+    padding-left: 10px;
+  }
+  /* Signup Page Styles*/
+  .signup{
+    margin: 5% 0;
+    width: 400px;
+    height: 100%;
+    padding-left: 10px;
+  }
+  /* Logout Page Styles */
+  .logout{
+    font-size: 20px;
+  }
+}
+@media (max-width: 500px) and (min-width: 1px){
+    /* List Item Stylings */
+    .list{
+      width: 100%;
+    }
+    #empty{
+      font-size: 40px;
+      text-align: center;
+      width: 100%;
+      padding-left: 0;
+    }
+  /* Home Page Styles */
+    #add-task{
+      margin-left: 3px;
+      margin-top: 37px;
+    }
+    #home{
+      margin-left: 3px;
+    }
+    .tab_button{
+      font-size: 0.8em;
+      width: 33%;
+    }
+    #no_list{
+      font-size: 1.3em;
+      width: 300px;
+    }
+    /* List page Styles*/
+    .listings{
+      margin-left: 0px;
+      margin-top: 45px;
+    }
+    /* Login Page Styles*/
+    .login{
+      margin: 5% 0;
+      width: 400px;
+      height: 100%;
+      padding-left: 3px;
+    }
+    input[name = 'login']{
+      width: 20%;
+      height: 25px;
+      border-radius: 3px;
+      border: none;
+      font-size: 18px;
+      padding-left: 10px;
+      display: block;
+      margin: 0px 10px 20px 100%;
+      float: right;
+      clear: left;
+      background-color: #00ACE7;
+      color: white;
+    }
+    /* Signup Page Styles*/
+    .signup{
+      margin: 5% 0;
+      width: 450px;
+      height: 100%;
+      padding-left: 3px;
+    }
+    input[name = 'submit']{
+      width: 26%;
+      height: 25px;
+      border-radius: 3px;
+      border: none;
+      font-size: 18px;
+      padding-left: 10px;
+      display: block;
+      margin: 0px 10px 20px 90%;
+      float: right;
+      clear: left;
+      background-color: #00ACE7;
+      color: white;
+    }
+    /* Logout Page Styles */
+    .logout{
+      font-size: 20px;
+    }
+}
