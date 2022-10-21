@@ -27,7 +27,7 @@ class Signup extends React.Component{
       password: this.state.password,
     }).then(
       (result) => {
-        console.log('success');
+        window.location.href = '/';
       })
       .catch (
         (error) => {
