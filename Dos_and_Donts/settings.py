@@ -14,7 +14,7 @@ import socket
 from pathlib import Path
 from six.moves import configparser
 from datetime import timedelta
-import dj_database_url
+import dj-database-url
 
 db_from_env = dj_database_url.config(conn_max_age = 500)
 DATABASES['default'].update(db_from_env)
