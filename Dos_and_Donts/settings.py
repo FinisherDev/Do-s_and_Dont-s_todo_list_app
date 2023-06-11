@@ -44,7 +44,7 @@ SECRET_KEY = config.get('security', 'SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config.get('general', 'DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'evening-refuge-3851.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'vercel.app', 'localhost']
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
