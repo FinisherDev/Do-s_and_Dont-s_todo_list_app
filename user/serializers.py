@@ -27,20 +27,8 @@ class UserRegisterationSerializer(serializers.ModelSerializer):
         return CustomUser.objects.create_user(**validated_data)
 
 
-class UserLoginSerializer(serializers.Serializer):
-    """
-    Serializer class to authenticate users with email and password.
-    """
-    email = serializers.CharField()
-    password = serializers.CharField(write_only=True)
 
-    def validate(self, data):
-        user = authenticate(**data)
-        if user and user.is_active:
-            return user
-        raise serializers.ValidationError('Incorrect Credentials')
-
-
+#Password reset features loading
 class PasswordChangeSerializer(serializers.Serializer):
     """
     Serializer class for changing user password

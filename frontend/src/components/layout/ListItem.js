@@ -1,6 +1,17 @@
 import React , {Component} from 'react';
 import AuthService from '../../tools/axiosAPI.js';
 
+function parseTimestamp(timestamp) {
+  let months = ['Janurary', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  let day_no = timestamp.slice(8,10);
+  let month = months[BigInt(timestamp.slice(5,7)) - BigInt(1)];
+  let year = timestamp.slice(0,4);
+
+  let date = day_no + " " + month + ", " + year;
+  return date;
+}
+
 class ListItem extends Component {
   constructor(props) {
     super(props);
@@ -63,12 +74,18 @@ class ListItem extends Component {
   render() {
     return(
       <div className= {'list '+this.state.completeClass}>
-        <h3 className={"title_hd "+this.state.completeClass} onClick={this.setShow}>{this.props.title}</h3>
+        <h3 className={"title_hd "+this.state.completeClass} onClick={this.setShow}>
+          {this.props.title}
+          <p id="timestamp">
+            {parseTimestamp(this.props.timestamp)}
+          </p>
+        </h3>
         <div id={this.state.showClass}>
           <span className={"panel "+this.state.completeClass}>{this.props.description}</span>
           <div className='buttons'>
             <var id='completion'>
-              Check(or_not) <input type="checkbox" name="completion" value="" onClick={() => this.complete(this.props.id, this.props.title)}/>
+              {this.props.completed === true ? "Completed    " : "Incompleted    "}
+              <input type="checkbox" name="completion" value="" onClick={() => this.complete(this.props.id, this.props.title)}/>
             </var>
             <var className={this.state.completeClass}>
               Delete

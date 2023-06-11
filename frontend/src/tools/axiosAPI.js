@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL =  "https://evening-refuge-3851.herokuapp.com/api";
+const baseURL =  window.origin + "/api";
 
 const AuthService = axios.create({
     baseURL: baseURL,

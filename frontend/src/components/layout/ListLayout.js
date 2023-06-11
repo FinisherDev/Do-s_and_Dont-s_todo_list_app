@@ -6,10 +6,16 @@ function ListLayout(props){
   function deleteList(id){
     AuthService.delete(`/todo_list/${id}/`)
     .then((response) => {
-      window.location.href = '/list';
+      let list = JSON.parse(sessionStorage.getItem('display_list'));
+      delete list[list.findIndex(x => x.id === id)];
+      let dense_list = list.filter(() => true);
+      sessionStorage.display_list = JSON.stringify(dense_list);
+      console.log(list);
+      console.log(JSON.parse(sessionStorage.getItem('display_list')));
+      props.onClose();
     });
   }
-  
+
   return (
   <div>
         {

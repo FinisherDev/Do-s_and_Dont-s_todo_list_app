@@ -26,7 +26,7 @@ config = configparser.SafeConfigParser(allow_no_value = True)
 
 #Configuration starts here
 #For Production
-if socket.gethostname().startswith('evening-refuge'):
+if socket.gethostname().startswith(''):
     config.read('%s/Dos_and_Donts/configs/production.config' % (BASE_DIR))
 #For testing
 elif socket.gethostname().startswith('test'):
@@ -42,9 +42,9 @@ else:
 SECRET_KEY = config.get('security', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config.get('general', 'DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'evening-refuge-3851.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'evening-refuge-3851.herokuapp.com', 'localhost']
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
@@ -101,6 +101,7 @@ WSGI_APPLICATION = 'Dos_and_Donts.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config.get('databases','ENGINE'),
+        'URL': config.get('databases', 'URL'),
         'HOST' : config.get('databases','HOST'),
         'PORT' :config.get('databases','PORT'),
         'USER' : config.get('databases','USER'),

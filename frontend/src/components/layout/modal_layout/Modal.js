@@ -10,18 +10,23 @@ const Modal = (props) => {
     return null
   }
 
-  function handleSubmit(props) {
+  function handleSubmit() {
     AuthService.post('todo_list/', {
       title : title,
       description: description
     })
     .then(
       (result) => {
-      console.log(result);
-      window.location.href = '/';
+        let list = JSON.parse(sessionStorage.getItem('display_list'));
+        list.unshift(result.data);
+        sessionStorage.display_list = JSON.stringify(list);
+        setTitle('');
+        setDes('');
+        props.onClose()
     })
     .catch((error) => {
       console.log(error);
+      setErrors(error.response.data)
     })
   }
 
@@ -39,8 +44,10 @@ const Modal = (props) => {
         <div className="modal-body">
           <div id='todo' >
             <label id='title'>Title</label>
+            <span className="error">{errors.title}</span>
             <input name="title" placeholder="Enter title here" onChange={(event) => setTitle(event.target.value)} value={title} />
             <label id='description'>Description</label>
+            <span className="error">{errors.description}</span>
             <input name="description" placeholder="Enter a description" onChange={(event) => setDes(event.target.value)} value={description} />
           </div>
         </div>

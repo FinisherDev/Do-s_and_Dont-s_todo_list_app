@@ -33,9 +33,9 @@ function Tabs(props) {
         <button onClick = {() => {displayIncomplete()}} className='tab_button'>Incompleted</button>
       </nav>
       {
-        viewDone === false && viewUndone === false ? <ListLayout list = {props.full_list}/> :
-        viewDone === true && viewUndone === false ? <ListLayout list = {done}/> :
-        viewDone === false && viewUndone === true ? <ListLayout list = {undone}/>:
+        viewDone === false && viewUndone === false ? <ListLayout list = {props.full_list} onClose = {()  => window.location.replace('/list')}/> :
+        viewDone === true && viewUndone === false ? <ListLayout list = {done} onClose = {()  => window.location.replace('/list')}/> :
+        viewDone === false && viewUndone === true ? <ListLayout list = {undone} onClose = {()  => window.location.replace('/list')}/>:
         null
       }
     </div>
@@ -50,18 +50,20 @@ function Home (props) {
   async function getMessage(){
     try {
         let response = await AuthService.get('/hello/');
-        const data = response.data;
-        setTodayList(data);
+        sessionStorage.setItem('display_list', JSON.stringify(response.data));
+        setTodayList(JSON.parse(sessionStorage.getItem('display_list')));
       }catch(error){
-        window.location.href = '/login';
+        window.location.replace('/login');
     }
   }
 
   useEffect(
     () => {
       getMessage();
-      setIsLoading(false);
-    }, [],
+      if (todayList){
+          setIsLoading(false);
+      }
+    }, [isLoading],
   );
 
   if (isLoading){
@@ -70,7 +72,7 @@ function Home (props) {
     return (
       <div id='home'>
         <button id='add-task' onClick={() => setShow(true)}>Add Task</button>
-        <Modal onClose={() => setShow(false)} show={show} submit={() => setShow(false)}/>
+        <Modal onClose={() => (setTodayList(JSON.parse(sessionStorage.getItem('display_list'))), setShow(false))} show={show} submit={() => setShow(false)}/>
         { todayList.length === 0 ? <p id="no_list">Woohoo! It's a free day</p> : <Tabs full_list = {todayList} /> }
       </div>
     );

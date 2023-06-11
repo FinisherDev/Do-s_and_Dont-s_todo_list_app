@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "Dos_and_Donts/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "Dos_and_Donts/wsgi.py"
+    }
+  ]
+}

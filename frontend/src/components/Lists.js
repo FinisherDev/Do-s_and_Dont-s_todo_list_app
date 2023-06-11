@@ -10,8 +10,8 @@ function List(props) {
   async function getMessage(){
     try {
         let response = await AuthService.get('todo_list/');
-        const data = response.data;
-        setLists(data);
+        sessionStorage.setItem('display_list', JSON.stringify(response.data));
+        setLists(JSON.parse(sessionStorage.getItem('display_list')));
       }catch(error){
         window.location.href = '/login';
     }
@@ -31,7 +31,7 @@ function List(props) {
   }else {
     return (
       <div className='listings'>
-        <ListLayout className='lists' list = {lists}/>
+        <ListLayout className='lists' list = {lists} onClose = {() => (setLists(JSON.parse(sessionStorage.getItem('display_list'))))}/>
       </div>
     )
   }

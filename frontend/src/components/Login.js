@@ -21,7 +21,7 @@ function Login (props) {
         AuthService.defaults.headers['Authorization'] = 'Bearer ' + result.data.access;
         localStorage.setItem('access_token', result.data.access);
         localStorage.setItem('refresh_token', result.data.refresh);
-        window.location.href = '/';
+        window.location.assign('/');
       })
       .catch (
         (error) => {
