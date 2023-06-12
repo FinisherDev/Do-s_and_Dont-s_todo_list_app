@@ -25,15 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 config = configparser.SafeConfigParser(allow_no_value = True)
 
 #Configuration starts here
-#For Production
-if socket.gethostname().startswith(''):
-    config.read('%s/Dos_and_Donts/configs/production.config' % (BASE_DIR))
+#For Development
+if socket.gethostname().startswith('localhost' or '127.0.0.1'):
+    config.read('%s/Dos_and_Donts/configs/dev.config' % (BASE_DIR))
 #For testing
 elif socket.gethostname().startswith('test'):
     config.read('%s/Dos_and_Donts/configs/test.config' % (BASE_DIR))
-#For Development
+#For Production
 else:
-    config.read('%s/Dos_and_Donts/configs/dev.config' % (BASE_DIR))
+    config.read('%s/Dos_and_Donts/configs/production.config' % (BASE_DIR))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
