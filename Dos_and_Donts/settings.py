@@ -48,8 +48,8 @@ ALLOWED_HOSTS = ['127.0.0.1', 'vercel.app', 'localhost']
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
-# vercel_app/settings.py
-WSGI_APPLICATION = 'vercel_app.wsgi.app
+# Dos_and_Donts/settings.py
+WSGI_APPLICATION = 'Dos_and_Donts.wsgi.app
 
 # Application definition
 
