@@ -26,7 +26,7 @@ config = configparser.SafeConfigParser(allow_no_value = True)
 
 #Configuration starts here
 #For Development
-if socket.gethostname().startswith('vercel'):
+if socket.gethostname().startswith('localhost'):
     config.read('%s/Dos_and_Donts/configs/dev.config' % (BASE_DIR))
 #For testing
 elif socket.gethostname().startswith('test'):
@@ -44,7 +44,7 @@ SECRET_KEY = config.get('security', 'SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config.get('general', 'DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'vercel.app', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost']
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
