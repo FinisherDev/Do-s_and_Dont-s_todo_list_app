@@ -26,7 +26,7 @@ config = configparser.SafeConfigParser(allow_no_value = True)
 
 #Configuration starts here
 #For Development
-if socket.gethostname().startswith('localhost' or '127.0.0.1'):
+if socket.gethostname().startswith('vercel'):
     config.read('%s/Dos_and_Donts/configs/dev.config' % (BASE_DIR))
 #For testing
 elif socket.gethostname().startswith('test'):
