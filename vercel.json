@@ -8,9 +8,9 @@
     },
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "Dos_and_Donts/wsgi.py"
-    }
-  ]
+      {
+        "src": "/(.*)",
+        "dest": "Dos_and_Donts/wsgi.py"
+      }
+    ]
 }
