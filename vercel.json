@@ -12,5 +12,5 @@
       "src": "/(.*)",
       "dest": "Dos_and_Donts/wsgi.py"
     }
-  ]
+  ],
 }
